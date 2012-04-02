@@ -27,7 +27,8 @@ $(function (w) {
     var acanvas = document.getElementById('perlin_analyze');
     PERLIN_CORE.astage = new Stage(acanvas);
 
-    PERLIN_CORE.perlin_set = new PerlinSet(400, 400, PERLIN_CORE.opBase, 2.25);
+    // set last parameter to true for colored perlin!
+    PERLIN_CORE.perlin_set = new PerlinSet(400, 400, PERLIN_CORE.opBase, 2.25, false);
     PERLIN_CORE.stage.addChild(PERLIN_CORE.perlin_set);
 
     _octave_button();

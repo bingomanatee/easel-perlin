@@ -4,12 +4,13 @@
     var p = PerlinSet.prototype;
     _.extend(p, {
 
-        _post_initialize:function (h, w, octaves, opBase) {
+        _post_initialize:function (h, w, octaves, opBase, colored) {
             this.image = document.createElement('canvas');
             this.image.width = w;
             this.image.height = h;
             this.octaves = octaves;
             this.opBase = opBase ? opBase : 2;
+            this.colored = colored;
             this.layers = [];
 
             this.make();
@@ -40,7 +41,7 @@
                     var s = scale * 2;
                     console.log('ADDING LAYER: opacity ', op,
                         'scale', scale, 'octaves', octave, 'blur: ', s);
-                    var p2 = new PerlinLayer(this.image.height, this.image.width, scale, s, s);
+                    var p2 = new PerlinLayer(this.image.height, this.image.width, scale, true, this.colored);
                     this.layers[octave] = p2
 
                 }

@@ -4,6 +4,8 @@
 
     var p = NoiseFilter.prototype;
 
+    p.colored = false;
+
     p.applyFilter = function (ctx, x, y, width, height, targetCtx, targetX, targetY) {
         targetCtx = targetCtx || ctx;
         if (targetX == null) {
@@ -28,6 +30,9 @@
                 pixels[i] = 255;
             } else {
                 pixels[i] = c;
+                if (this.colored){
+                    c = Math.floor(Math.random() * 255);
+                }
             }
         }
         targetCtx.putImageData(imageData, 0, 0);

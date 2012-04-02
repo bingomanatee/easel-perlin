@@ -4,7 +4,7 @@
     var p = PerlinLayer.prototype;
     _.extend(p, {
 
-        _post_initialize:function (h, w, scale, a, b) {
+        _post_initialize:function (h, w, scale, normalize, color) {
             this.image = document.createElement('canvas');
             this.image.width = w;
             this.image.height = h;
@@ -17,7 +17,7 @@
             for (var x = 0; x < w; x += sx)
                 for (var y = 0; y < h; y += sy) {
 
-                    var p = new Perlin(pc, pc);
+                    var p = new Perlin(pc, pc, color);
                     p.scaleX = p.scaleY = scale;
 
                     p.x = x;
@@ -30,7 +30,7 @@
 
             var ctx = this.image.getContext('2d');
 
-            if (a) {
+            if (normalize) {
                // var bf = new BoxBlurFilter(a, b, 4);
                // bf.applyFilter(ctx, 0, 0, 400, 400);
 
