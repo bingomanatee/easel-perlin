@@ -1,0 +1,144 @@
+<html>
+<head>
+    <script src="js/libs/underscore/underscore-min.js">
+
+    </script>
+
+    <!-- Import EaselJS Framework -->
+    <script src="js/libs/easel/src/easeljs/utils/UID.js"></script>
+
+    <!-- script src="js/libs/easel/src/easeljs/geom/Point.js"></script -->
+    <script src="js/libs/easel/src/easeljs/geom/Matrix2D.js"></script>
+    <!-- script src="js/libs/easel/src/easeljs/geom/Rectangle.js"></script -->
+
+    <script src="js/libs/easel/src/easeljs/events/MouseEvent.js"></script>
+    <!--script src="js/libs/easel/src/easeljs/utils/SpriteSheetUtils.js"></script-->
+
+    <script src="js/libs/easel/src/easeljs/display/DisplayObject.js"></script>
+    <script src="js/libs/easel/src/easeljs/display/Bitmap.js"></script>
+    <script src="js/libs/easel/src/easeljs/filters/Filter.js"></script>
+    <script src="js/libs/easel/src/easeljs/filters/BoxBlurFilter.js"></script>
+    <script src="js/libs/easel/src/easeljs/display/Shape.js"></script>
+    <!-- script src="js/libs/easel/src/easeljs/display/Shadow.js"></script -->
+    <script src="js/libs/easel/src/easeljs/display/Graphics.js"></script>
+    <!-- script src="js/libs/easel/src/easeljs/display/SpriteSheet.js"></script -->
+    <script src="js/libs/easel/src/easeljs/display/DisplayObject.js"></script>
+    <script src="js/libs/easel/src/easeljs/display/Container.js"></script>
+    <script src="js/libs/easel/src/easeljs/display/Text.js"></script>
+    <script src="js/libs/easel/src/easeljs/display/Stage.js"></script>
+    <!-- script src="js/libs/easel/src/easeljs/display/BitmapAnimation.js"></script -->
+
+    <script src="js/libs/easel/src/easeljs/utils/Ticker.js"></script>
+    <!-- End EaselJS Imports -->
+
+    <script src="js/libs/stat.js">
+
+    </script>
+    <script src="js/perlin/easely_util.js">
+
+    </script>
+
+    <script src="js/perlin/NoiseFilter.js">
+
+    </script>
+    <script src="js/perlin/NormalFilter.js">
+
+    </script>
+    <script src="js/libs/Pixastic.js">
+
+    </script>
+    <script src="js/perlin/Perlin.js">
+
+    </script>
+    <script src="js/perlin/PerlinLayer.js">
+
+    </script>
+    <script src="js/perlin/PerlinSet.js">
+
+    </script>
+    <script src="js/libs/CanvasTerrain.js">
+
+    </script>
+    <script src="js/perlin/TerrainHeight.js">
+
+    </script>
+    <script type="text/javascript" src="js/libs/jquery/1.7.1/jquery.min.js" defer="defer">
+
+    </script>
+
+    <script language="javaScript" defer="defer" src="js/perlin/init_table.js">
+
+    </script>
+
+    <script src="js/perlin/CORE.js" defer="defer">
+    </script>
+
+</head>
+
+<body>
+<h1>Perlin</h1>
+
+<canvas id="perlin" width="400" height="400">
+
+</canvas>
+<canvas id="perlin_analyze" width="400" height="400">
+
+</canvas>
+<br/>
+
+
+<table id="cell_data_table" style="width: 100%; display: none;" border="1">
+    <tr>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+
+    </tr>
+    <tbody id="cell_data_table_row">
+    <tr id="cell_data_table_row_inner">
+        <td id="cd_{{ r }}_c{{ c }}" valign="top">
+            <span><b>Height: </b>
+        <span id="cd_r_{{ r }}_c_{{ c }}_height">  </span>
+        </span><br/>
+            <table>
+                <tr><th>Base</th>
+                <th>Neighbor</th>
+                    <th>Rise</th>
+                    <th>Weight</th>
+                </tr>
+                <tbody id="cd_r_{{ r }}_c_{{ c }}_weights">
+
+                </tbody>
+            </table>
+            <span id="n_r_{{ r }}_c_{{ c }}"></span>
+            <span id="op_r_{{ r }}_c_{{ c }}"></span>
+        </td>
+    </tr>
+    </tbody>
+    <span id="angle_row">
+        <tr>
+            <td>
+                {{ base }}
+            </td>
+            <td>
+                {{ n2 }}
+            </td>
+            <td>
+                {{rise }}
+            </td>
+            <td>
+                {{ weight }}
+            </td>
+        </tr>
+    </span>
+</table>
+
+</body>
+</html>
